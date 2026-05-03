@@ -18,7 +18,9 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.wishingsprite.core.ui.theme.WishingSpriteTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -55,4 +57,10 @@ fun HomeScreen(onDebugClick: () -> Unit, onSettingsClick: () -> Unit) {
       }
     }
   }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun HomeScreenPreview() {
+  WishingSpriteTheme { HomeScreen(onDebugClick = {}, onSettingsClick = {}) }
 }
