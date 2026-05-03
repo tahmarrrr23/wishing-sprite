@@ -8,20 +8,18 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.wishingsprite.core.ui.component.WishingSpriteScreenLayout
+import com.example.wishingsprite.core.ui.component.WishingSpriteTopAppBar
 import com.example.wishingsprite.core.ui.theme.WishingSpriteTheme
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DebugScreen(onBackClick: () -> Unit) {
   val debugMessages =
@@ -31,15 +29,14 @@ fun DebugScreen(onBackClick: () -> Unit) {
         "and sample runtime details keep this screen full and ready for inspection."
     }
 
-  Scaffold(
+  WishingSpriteScreenLayout(
     topBar = {
-      TopAppBar(
-        title = {},
+      WishingSpriteTopAppBar(
         navigationIcon = {
           IconButton(onClick = onBackClick) {
             Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
           }
-        },
+        }
       )
     }
   ) { innerPadding ->

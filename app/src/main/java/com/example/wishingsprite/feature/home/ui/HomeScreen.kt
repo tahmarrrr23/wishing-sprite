@@ -9,20 +9,18 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BugReport
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.wishingsprite.core.ui.component.WishingSpriteScreenLayout
+import com.example.wishingsprite.core.ui.component.WishingSpriteTopAppBar
 import com.example.wishingsprite.core.ui.theme.WishingSpriteTheme
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(onDebugClick: () -> Unit, onSettingsClick: () -> Unit) {
   val homeMessages =
@@ -32,10 +30,9 @@ fun HomeScreen(onDebugClick: () -> Unit, onSettingsClick: () -> Unit) {
         "screen pleasantly full for scrolling."
     }
 
-  Scaffold(
+  WishingSpriteScreenLayout(
     topBar = {
-      TopAppBar(
-        title = {},
+      WishingSpriteTopAppBar(
         actions = {
           IconButton(onClick = onDebugClick) {
             Icon(imageVector = Icons.Filled.BugReport, contentDescription = "Open debug")
@@ -43,7 +40,7 @@ fun HomeScreen(onDebugClick: () -> Unit, onSettingsClick: () -> Unit) {
           IconButton(onClick = onSettingsClick) {
             Icon(imageVector = Icons.Filled.Settings, contentDescription = "Open settings")
           }
-        },
+        }
       )
     }
   ) { innerPadding ->
