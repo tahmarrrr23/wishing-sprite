@@ -1,5 +1,7 @@
 package com.example.wishingsprite
 
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -16,7 +18,14 @@ private const val SettingsRoute = "settings"
 fun WishingSpriteApp() {
   val navController = rememberNavController()
 
-  NavHost(navController = navController, startDestination = HomeRoute) {
+  NavHost(
+    navController = navController,
+    startDestination = HomeRoute,
+    enterTransition = { EnterTransition.None },
+    exitTransition = { ExitTransition.None },
+    popEnterTransition = { EnterTransition.None },
+    popExitTransition = { ExitTransition.None },
+  ) {
     composable(HomeRoute) {
       HomeScreen(
         onDebugClick = { navController.navigate(DebugRoute) },
